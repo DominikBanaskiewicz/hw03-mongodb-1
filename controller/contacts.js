@@ -74,7 +74,7 @@ const createContact = async (req, res, next) => {
     const contacts = await service.listContacts();
     const isNameUnique = !contacts.some((elem) => elem.name === name);
     if (!isNameUnique) {
-      return res.status(200).json({
+      return res.status(400).json({
         status: "error",
         code: 400,
         data: { message: "you already have contact with that name" },
